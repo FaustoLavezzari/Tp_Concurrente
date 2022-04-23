@@ -1,5 +1,5 @@
-public class Consumidor extends Actor{
+//public class Consumidor extends Actor{
 
 
 
-}
+//}

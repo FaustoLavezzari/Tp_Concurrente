@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Contenedor {
@@ -9,7 +8,7 @@ public class Contenedor {
     public Contenedor(int ID){
         this.capacidad = 100;
         this.ID = ID;
-        this.datos = new HashMap<>();
+        this.datos = new HashMap<Integer, Dato>();
     }
 
     public int getID(){
@@ -21,12 +20,12 @@ public class Contenedor {
         }
     }
 
-    public Dato getDato(){
+    public Dato getDato(int ID){
         if (datos.isEmpty()){
             System.out.println("No existen datos");
             return null;
         }else{
-            return datos.get();
+            return datos.get(ID);
         }
     }
 

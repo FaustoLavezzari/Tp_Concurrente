@@ -5,7 +5,12 @@ public class Revisor extends Actor{
         super(10, ID);
     }
 
-    private bool validarDato(Dato dato){
+    //private boolean validarDato(Dato dato){
+
+    //}
+
+    @Override
+    public void run() {
 
     }
 }

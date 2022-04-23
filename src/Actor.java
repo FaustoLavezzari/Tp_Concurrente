@@ -1,5 +1,4 @@
 public abstract class Actor {
-
     protected int timer1;
     protected int id;
 
@@ -9,7 +8,6 @@ public abstract class Actor {
         this.id = id;
     }
 
-    protected abstract void procesar();
-    protected abstract int getId();
-
+  //  protected abstract void procesar();
+    //protected abstract int getId();
 }

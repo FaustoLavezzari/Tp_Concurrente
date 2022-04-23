@@ -12,18 +12,19 @@ public class Dato {
     }
 
     public int getCantReviews(){
-        return ca
+        return cantReviews;
     }
 
     public void addReviewer(Revisor revisor){
-        reviews.add(revisor);
+        reviewers.add(revisor);
     }
 
     public boolean checkReviewer(Revisor revisor){
-        return reviews.contains(revisor);
+        return reviewers.contains(revisor);
     }
 
     public int getID(){
         return ID;
     }
 }
+

@@ -1,20 +1,13 @@
 import java.util.ArrayList;
 
 public class Creador extends Actor implements Runnable{
-    ArrayList<Dato> datos;
+    private Contenedor inicial;
 
     public Creador(int ID, Contenedor b){
         super(10,ID);
-        this.datos = new ArrayList<>();
+        this.inicial = b;
     }
-    @Override
-    protected void procesar(){  // al re pedo
-        System.out.println("Creando datos..");
-    }
-    @Override
-    protected int getId(){  // no tiene sentido pero boa
-        return this.id;
-    }
+
     @Override
     public void run(){
         int i = this.id;
@@ -24,8 +17,14 @@ public class Creador extends Actor implements Runnable{
             this.agregarDato(d);
         }
     }
+
     private void agregarDato(Dato dato){
-        this.datos.add(dato);
-        b
+        try{
+            TimeUnit.MILLISECONDS.sleep(100);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        this.inicial.putDato(dato);
+
     }
 }
