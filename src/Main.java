@@ -15,6 +15,7 @@ public class Main {
         for(int i=0; i<2; i++){
             Revisor revisor = new Revisor(i,inicial,validados);
             inicial.setReviewer(revisor);
+            validados.setReviewer(revisor);
             Thread t = new Thread(revisor,"Hilo Revisor "+i);
             revisores[i] = t;
 

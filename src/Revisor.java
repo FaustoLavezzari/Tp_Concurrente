@@ -13,7 +13,7 @@ public class Revisor extends Actor{
 
     @Override
     public void run() {
-        while (datos_procesados < 1000){
+        while (datos_procesados < 100){
             if (!(cola.size() == 0)){
                 //int id_dato= ;
                 validarDato(buffer_incial.getDato(cola.peek()));
