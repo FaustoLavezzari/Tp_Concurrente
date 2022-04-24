@@ -13,7 +13,7 @@ public class Revisor extends Actor implements Runnable{
         super(1, ID);
         this.buffer_inicial = buffer_inicial;
         this.buffer_validados= buffer_validados;
-        datos_procesados = 0;
+        this.datos_procesados = 0;
     }
 
     private void validarDato(Dato dato){
@@ -27,7 +27,7 @@ public class Revisor extends Actor implements Runnable{
         if(dato.getCantReviews()== 2){                                                   //el ultimo revisor lo agrega a validados
             buffer_validados.putDato(dato);
         } else if (dato.getCantReviews()> 2) {
-            System.out.println("ERROOOOOOOOOOOOOR, UN DATO FUE REVISADO MAS VECES, QUE LA CANTIDAD DE REVISORES");
+            System.out.println("ERROR, UN DATO FUE REVISADO MAS VECES, QUE LA CANTIDAD DE REVISORES");
         }
     }
     @Override

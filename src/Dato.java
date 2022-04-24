@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Dato {
     private int ID;
-    private List<Revisor> reviewers;
+    private  List<Revisor> reviewers;
 
     public Dato(int ID){
         this.ID = ID;
@@ -11,11 +11,12 @@ public class Dato {
     }
 
     public int getCantReviews(){
-        return reviewers.size();
+            return reviewers.size();
+
     }
 
-    public void addReviewer(Revisor revisor){
-        reviewers.add(revisor);
+    public synchronized void addReviewer(Revisor revisor){
+            reviewers.add(revisor);
     }
 
     public int getID(){

@@ -1,4 +1,3 @@
-
 public class Main {
 
     public static void main(String[] args) {
@@ -35,6 +34,23 @@ public class Main {
                consumidores[i].start();
            }
        }
+        // esperamos a que los hilos finalicen
+        for(int i=0; i<4; i++){
+            try{
+                creadores[i].join();
+                if (i<2){
+                    revisores[i].join();
+                    consumidores[i].join();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        /*
+        - Cantidad de datos procesados.
+        - Ocupación del “Buffer Inicial”.
+        - Ocupación del “Buffer de Validados”.
+         */
 
     }
 }

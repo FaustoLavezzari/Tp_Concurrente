@@ -16,6 +16,7 @@ public class Contenedor {
         revisores = new ArrayList<>();
         this.datos = new LinkedHashMap<>();
         queue_id_consumir = new LinkedList<>();
+
     }
 
     public Dato getDato(int ID){
@@ -42,7 +43,7 @@ public class Contenedor {
                     }
                 }
             }
-        }
+        //}
     }
 
     // no hay problema de concurrencia

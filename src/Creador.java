@@ -1,17 +1,20 @@
 import java.sql.Time;
 import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 public class Creador extends Actor implements Runnable{
     private Contenedor inicial;
     private int datos_creados;
+    private Lock queueLock;
 
     public Creador(int ID, Contenedor b){
         super(2,ID);
         this.inicial = b;
-        datos_creados= 0;
+        this.datos_creados= 0;
+        queueLock = new ReentrantLock();
     }
 
     @Override
@@ -28,12 +31,16 @@ public class Creador extends Actor implements Runnable{
     }
 
     private void agregarDato(Dato dato){
-        try{
+        try {
             TimeUnit.MILLISECONDS.sleep(timer1);
-        }catch (InterruptedException e){
+            this.inicial.putDato(dato);
+            this.datos_creados++;
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        inicial.putDato(dato);
-        datos_creados++;
+
+    }
+    @Override
+    protected void putQueue(int datoID){
     }
 }
