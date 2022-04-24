@@ -2,7 +2,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Dato {
-    private int cantReviews;
     private int ID;
     private List<Revisor> reviewers;
 

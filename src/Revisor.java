@@ -7,9 +7,23 @@ public class Revisor extends Actor{
         datos_procesados = 0;
     }
 
-    //private boolean validarDato(Dato dato){
-
-    //}
+    private void validarDato(Dato dato){
+        try{                                                                            //tiempo de espera
+            TimeUnit.MILLISECONDS.sleep(timer1);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        dato.addReviewer(this);                                                   //agrego este revisor al dato
+        datos_procesados++;
+        if(dato.getCantReviews()== 2){                                                   //el ultimo revisor lo agrega a validados
+            buffer_validados.putDato(dato);
+        } else if (dato.getCantReviews()> 2) {
+            System.out.println("ERROOOOOOOOOOOOOR, UN DATO FUE REVISADO MAS VECES, QUE LA CANTIDAD DE REVISORES");
+        }
+    }
+    public void putQueue(int datoID){
+        cola.add(datoID);
+    }
 
     @Override
     public void run() {
