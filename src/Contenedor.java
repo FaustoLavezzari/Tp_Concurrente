@@ -47,6 +47,10 @@ public class Contenedor {
         revisores.add(r);
     }
 
+    public int getCantDeDatos (){
+        return this.datos.size();
+    }
+
     public synchronized boolean removeDatos(int ID){
         if (datos.containsKey(ID)){
             datos.remove(ID);

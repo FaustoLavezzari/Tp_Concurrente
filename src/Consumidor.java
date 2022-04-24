@@ -16,9 +16,6 @@ public class Consumidor extends Actor implements Runnable{
         int datos_procesados = 0;
 
     }
-    public int getDatos_procesados(){
-        return datos_procesados;
-    }
     public void eliminarDato(){
         Dato eliminar = buffer_validados.getDato(-1); //pide el primer elemento del mapa
         if(eliminar.getID() != -1) {
@@ -31,6 +28,9 @@ public class Consumidor extends Actor implements Runnable{
                 datos_procesados++;
             }
         }
+    }
+    public int getDatos_procesados(){                                                   //nos sirve para el log
+        return datos_procesados;
     }
     @Override
     public void putQueue(int datoID){};

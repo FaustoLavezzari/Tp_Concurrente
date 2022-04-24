@@ -39,8 +39,8 @@ public class Creador extends Actor implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
+
     @Override
     protected void putQueue(int datoID){
     }
