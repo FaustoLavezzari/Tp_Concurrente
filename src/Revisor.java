@@ -1,4 +1,13 @@
-public class Revisor extends Actor{
+import java.util.concurrent.TimeUnit;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Revisor extends Actor implements Runnable{
+
+    private Contenedor buffer_inicial;
+    private Contenedor buffer_validados;
+    private Queue<Integer> cola = new LinkedList<>();
+    private int datos_procesados;
 
     public Revisor(int ID, Contenedor buffer_inicial, Contenedor buffer_validados) {
         super(1, ID);

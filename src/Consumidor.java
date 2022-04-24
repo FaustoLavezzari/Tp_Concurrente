@@ -1,4 +1,11 @@
-//public class Consumidor extends Actor{
+import java.util.concurrent.TimeUnit;
+
+
+public class Consumidor extends Actor implements Runnable{
+    private Contenedor buffer_validados;
+    private Contenedor buffer_inicial;
+
+    private int datos_procesados;
 
     public Consumidor(int id, Contenedor buffer_validados, Contenedor buffer_inicial){
         super(1, id);

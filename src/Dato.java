@@ -11,7 +11,7 @@ public class Dato {
     }
 
     public int getCantReviews(){
-        return cantReviews;
+        return reviewers.size();
     }
 
     public void addReviewer(Revisor revisor){

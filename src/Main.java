@@ -7,6 +7,7 @@ public class Main {
         Thread[] consumidores = new Thread[2];
 
         Contenedor inicial = new Contenedor(0);
+        Contenedor validados = new Contenedor(1);
 
         for(int i=0;i<4;i++){
             Creador c = new Creador(i, inicial);
@@ -21,7 +22,7 @@ public class Main {
             Thread t = new Thread(revisor,"Hilo Revisor "+i);
             revisores[i] = t;
 
-            Consumidor consumidor = new Consumidor(i);
+            Consumidor consumidor = new Consumidor(i, validados, inicial);
             Thread cons = new Thread(consumidor,"Hilo Consumidor "+i);
             consumidores[i] = cons;
         }
@@ -32,7 +33,7 @@ public class Main {
            creadores[i].start();
            if (i<2){
                revisores[i].start();
-              // consumidores[i].start();
+               consumidores[i].start();
            }
        }
 
