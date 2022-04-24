@@ -3,6 +3,7 @@ import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
 
+
 public class Consumidor extends Actor implements Runnable{
     private Contenedor buffer_validados;
     private Contenedor buffer_inicial;
@@ -13,6 +14,7 @@ public class Consumidor extends Actor implements Runnable{
         this.buffer_validados=buffer_validados;
         this.buffer_inicial=buffer_inicial;
         int datos_procesados = 0;
+
     }
     public void eliminarDato(){
         Dato eliminar = buffer_validados.getDato(-1); //pide el primer elemento del mapa
@@ -31,8 +33,9 @@ public class Consumidor extends Actor implements Runnable{
     public void putQueue(int datoID){};
     @Override
     public void run() {
-        while (datos_procesados < 50){
-            eliminarDato();
+            while (datos_procesados < 50) {
+                this.eliminarDato();
+            }
         }
     }
-}
+
