@@ -27,7 +27,7 @@ public class Revisor extends Actor implements Runnable{
         if(dato.getCantReviews()== 2){                                                   //el ultimo revisor lo agrega a validados
             buffer_validados.putDato(dato);
         } else if (dato.getCantReviews()> 2) {
-            System.out.println("ERROR, UN DATO FUE REVISADO MAS VECES, QUE LA CANTIDAD DE REVISORES");
+            System.out.println("ERROR, UN DATO FUE REVISADO MAS VECES QUE LA CANTIDAD DE REVISORES");
         }
     }
     @Override
@@ -37,10 +37,9 @@ public class Revisor extends Actor implements Runnable{
 
     @Override
     public void run() {
-        while (datos_procesados < 100){
+        while (true){
             if (cola.size() != 0){
-                validarDato(buffer_inicial.getDato(cola.peek()));
-                cola.remove();
+                validarDato(buffer_inicial.getDato(cola.remove()));
             }
         }
     }

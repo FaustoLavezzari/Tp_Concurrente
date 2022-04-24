@@ -11,7 +11,7 @@ public class Dato {
         reviewers = new LinkedList<Revisor>();
     }
 
-    public int getCantReviews(){
+    public synchronized int getCantReviews(){
             return reviewers.size();
 
     }

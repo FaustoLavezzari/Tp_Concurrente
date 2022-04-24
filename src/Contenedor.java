@@ -18,24 +18,21 @@ public class Contenedor {
         queue_id_consumir = new LinkedList<>();
 
     }
-
-    public Dato getDato(int ID){
-        //synchronized (datos) {
+    // parece que aca no hay problema de concurrencia
+    public synchronized Dato getDato(int ID){
             if (ID != -1) {
                 return datos.get(ID);
             } else {
                 if (!datos.isEmpty()) {
-                    return datos.get(datos.keySet().toArray()[0]); //obtiene la primer clave del map
+                    return datos.get(datos.keySet().toArray()[0]); //obtiene la primer clave del map, haciendolo funcionar como cola
                 } else {
                     return new Dato(-1);
                 }
             }
-        //}
     }
 
     public synchronized void putDato(Dato dato){
-        //synchronized (datos) {
-            if (datos.size() <= capacidad) {
+            if (datos.size() < capacidad) {
                 datos.put(dato.getID(), dato);
                 if (dato.getCantReviews() == 0) {
                     for (Revisor revisor : revisores) {
@@ -43,7 +40,6 @@ public class Contenedor {
                     }
                 }
             }
-        //}
     }
 
     // no hay problema de concurrencia

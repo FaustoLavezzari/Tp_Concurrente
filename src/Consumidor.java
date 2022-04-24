@@ -10,7 +10,7 @@ public class Consumidor extends Actor implements Runnable{
     private int datos_procesados;
 
     public Consumidor(int id, Contenedor buffer_validados, Contenedor buffer_inicial){
-        super(1, id);
+        super(4, id);
         this.buffer_validados=buffer_validados;
         this.buffer_inicial=buffer_inicial;
         int datos_procesados = 0;
@@ -36,7 +36,7 @@ public class Consumidor extends Actor implements Runnable{
     public void putQueue(int datoID){};
     @Override
     public void run() {
-            while (datos_procesados < 50) {
+            while (true) {
                 this.eliminarDato();
             }
         }
