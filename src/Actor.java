@@ -8,6 +8,8 @@ public abstract class Actor {
         this.id = id;
     }
 
+
+
   //  protected abstract void procesar();
-    //protected abstract int getId();
+  protected abstract void putQueue(int datoID);
 }

@@ -30,6 +30,7 @@ public class Revisor extends Actor implements Runnable{
             System.out.println("ERROOOOOOOOOOOOOR, UN DATO FUE REVISADO MAS VECES, QUE LA CANTIDAD DE REVISORES");
         }
     }
+    @Override
     public void putQueue(int datoID){
         cola.add(datoID);
     }
@@ -37,7 +38,7 @@ public class Revisor extends Actor implements Runnable{
     @Override
     public void run() {
         while (datos_procesados < 100){
-            if (!(cola.size() == 0)){
+            if (cola.size() != 0){
                 validarDato(buffer_inicial.getDato(cola.peek()));
                 cola.remove();
             }

@@ -9,7 +9,7 @@ public class Creador extends Actor implements Runnable{
     private int datos_creados;
 
     public Creador(int ID, Contenedor b){
-        super(1,ID);
+        super(2,ID);
         this.inicial = b;
         datos_creados= 0;
     }

@@ -18,10 +18,6 @@ public class Dato {
         reviewers.add(revisor);
     }
 
-    public boolean checkReviewer(Revisor revisor){
-        return reviewers.contains(revisor);
-    }
-
     public int getID(){
         return ID;
     }

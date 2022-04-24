@@ -1,59 +1,64 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Contenedor {
     private int ID;
     private int capacidad;
-    HashMap<Integer, Dato> datos;
-    private ArrayList<Revisor> reviewers;
+    LinkedHashMap<Integer, Dato> datos;
+    private ArrayList<Revisor> revisores;
     private Queue<Integer> queue_id_consumir;
 
     public Contenedor(int ID){
         this.capacidad = 100;
         this.ID = ID;
-        reviewers = new ArrayList<>();
-        this.datos = new HashMap<>();
+        revisores = new ArrayList<>();
+        this.datos = new LinkedHashMap<>();
         queue_id_consumir = new LinkedList<>();
     }
 
-    public  Dato getDato(int ID){
-        return datos.get(ID);
-    }
-
-    public  void putDato(Dato dato){
-        if (!(datos.size() >= capacidad)) {
-            datos.put(dato.getID(), dato);
-            if (dato.getCantReviews() == 0){
-                for (Revisor reviewer : reviewers) {
-                    reviewer.putQueue(dato.getID());
+    public Dato getDato(int ID){
+        //synchronized (datos) {
+            if (ID != -1) {
+                return datos.get(ID);
+            } else {
+                if (!datos.isEmpty()) {
+                    return datos.get(datos.keySet().toArray()[0]); //obtiene la primer clave del map
+                } else {
+                    return new Dato(-1);
                 }
             }
-            else if (dato.getCantReviews() == reviewers.size()){
-                queue_id_consumir.add(dato.getID());
+        //}
+    }
+
+    public synchronized void putDato(Dato dato){
+        //synchronized (datos) {
+            if (datos.size() <= capacidad) {
+                datos.put(dato.getID(), dato);
+                if (dato.getCantReviews() == 0) {
+                    for (Revisor revisor : revisores) {
+                        revisor.putQueue(dato.getID());
+                    }
+                }
             }
         }
     }
 
-    public void setReviewer(Revisor r){
-        reviewers.add(r);
+    // no hay problema de concurrencia
+    public void setRevisores(Revisor r){
+        revisores.add(r);
     }
 
-    public  int  getCantReviewers(){
-        return reviewers.size();
-    }
-
-    public  int getPorConsumir(){
-        if (queue_id_consumir.size() > 0){
-            return queue_id_consumir.remove();
+    public synchronized boolean removeDatos(int ID){
+        if (datos.containsKey(ID)){
+            datos.remove(ID);
+            return true;
         }
         else{
-            return -1;
+            return false;
         }
-    }
 
-    public  void removeDatos(int ID){
-        datos.remove(ID);
+
     }
 }
