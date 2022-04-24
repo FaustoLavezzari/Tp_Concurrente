@@ -17,6 +17,7 @@ public class Creador extends Actor implements Runnable{
         while(i < 100){
             Dato d = new Dato(i);
             this.agregarDato(d);
+            i+=4;
         }
       //  System.out.printf("hilo %s creo %d datos \n",Thread.currentThread().getName(), datos_creados);
       //  System.out.printf("%s hay %d datos en el contenedor\n",Thread.currentThread().getName(), inicial.getSize());
