@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 
 public class Creador extends Actor implements Runnable{
+
     private Contenedor inicial;
     private int datos_creados;
     private Lock queueLock;
