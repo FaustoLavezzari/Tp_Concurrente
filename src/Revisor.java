@@ -1,8 +1,8 @@
 public class Revisor extends Actor{
 
-    public Revisor(int ID, Contenedor buffer_incial, Contenedor buffer_validados) {
+    public Revisor(int ID, Contenedor buffer_inicial, Contenedor buffer_validados) {
         super(1, ID);
-        this.buffer_incial = buffer_incial;
+        this.buffer_inicial = buffer_inicial;
         this.buffer_validados= buffer_validados;
         datos_procesados = 0;
     }
@@ -15,8 +15,7 @@ public class Revisor extends Actor{
     public void run() {
         while (datos_procesados < 100){
             if (!(cola.size() == 0)){
-                //int id_dato= ;
-                validarDato(buffer_incial.getDato(cola.peek()));
+                validarDato(buffer_inicial.getDato(cola.peek()));
                 cola.remove();
             }
         }

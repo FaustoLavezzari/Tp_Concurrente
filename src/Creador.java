@@ -14,8 +14,7 @@ public class Creador extends Actor implements Runnable{
     public void run(){
         int i = this.id;
         // generamos datos indefinidamente
-        int f = 0;
-        while(f <100){
+        while(i < 100){
             Dato d = new Dato(i);
             this.agregarDato(d);
         }
@@ -29,7 +28,7 @@ public class Creador extends Actor implements Runnable{
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        this.inicial.putDato(dato);
+        inicial.putDato(dato);
         datos_creados++;
     }
 }

@@ -1,4 +1,3 @@
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,11 +9,12 @@ public class Contenedor {
     public Contenedor(int ID){
         this.capacidad = 100;
         this.ID = ID;
-        this.datos = new HashMap<Integer, Dato>();
-        queue_id_consumir = new LinkedList<Integer>();
+        reviewers = new ArrayList<>();
+        this.datos = new HashMap<>();
+        queue_id_consumir = new LinkedList<>();
     }
 
-    public Dato getDato(int ID){
+    public  Dato getDato(int ID){
         return datos.get(ID);
     }
 

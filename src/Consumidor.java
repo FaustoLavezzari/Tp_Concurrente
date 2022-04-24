@@ -9,7 +9,7 @@
 
     @Override
     public void run() {
-        while (datos_procesados < 100){
+        while (datos_procesados < 50){
             eliminarDato();
         }
     }
