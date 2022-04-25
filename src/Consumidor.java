@@ -20,7 +20,7 @@ public class Consumidor extends Actor implements Runnable{
         if(buffer_inicial.removeDatos(eliminar.getID()) && buffer_validados.removeDatos(eliminar.getID())) {
             try {                                                                            //tiempo de espera
                 Random var = new Random();
-                TimeUnit.MILLISECONDS.sleep((long) (timer1 + var.nextFloat(1,1 + variacion)));
+                TimeUnit.MILLISECONDS.sleep((long) (timer1*var.nextFloat(1,1 + variacion)));
                 datos_procesados++;
             } catch (InterruptedException e) {
                 e.printStackTrace();

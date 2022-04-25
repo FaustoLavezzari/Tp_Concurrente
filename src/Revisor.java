@@ -19,7 +19,7 @@ public class Revisor extends Actor implements Runnable{
     private void validarDato(Dato dato){
         try{                                                                                    //tiempo de espera
             Random var = new Random();
-            TimeUnit.MILLISECONDS.sleep((long) (timer1 + var.nextFloat(1,1 + variacion)));
+            TimeUnit.MILLISECONDS.sleep((long) (timer1*var.nextFloat(1,1 + variacion)));
             dato.addReviewer(id);                                                   //agrego este revisor al dato
             datos_procesados++;
             if(dato.getCantReviews()== 2){                                                   //el ultimo revisor lo agrega a validados
