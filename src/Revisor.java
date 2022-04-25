@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Revisor extends Actor implements Runnable{
@@ -11,11 +12,13 @@ public class Revisor extends Actor implements Runnable{
         this.buffer_inicial = buffer_inicial;
         this.buffer_validados= buffer_validados;
         this.datos_procesados = 0;
+        variacion = (float) 0.3;
     }
 
     private void validarDato(Dato dato){
-        try{                                                                            //tiempo de espera
-            TimeUnit.MILLISECONDS.sleep(timer1);
+        try{                                                                                    //tiempo de espera
+            Random var = new Random();
+            TimeUnit.MILLISECONDS.sleep((long) (timer1 + var.nextFloat(1,1 + variacion)));
             dato.addReviewer(id);                                                   //agrego este revisor al dato
             datos_procesados++;
             if(dato.getCantReviews()== 2){                                                   //el ultimo revisor lo agrega a validados

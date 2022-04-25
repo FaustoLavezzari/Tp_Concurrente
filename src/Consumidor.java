@@ -1,16 +1,17 @@
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
-
 
 public class Consumidor extends Actor implements Runnable{
     private Contenedor buffer_validados;
     private Contenedor buffer_inicial;
     private int datos_procesados;
+    private  float variacion;
 
     public Consumidor(int id, Contenedor buffer_validados, Contenedor buffer_inicial){
-        super(12, id);
+        super(6, id);
         this.buffer_validados=buffer_validados;
         this.buffer_inicial=buffer_inicial;
+        variacion = (float) 0.3;
         int datos_procesados = 0;
     }
 
@@ -18,7 +19,8 @@ public class Consumidor extends Actor implements Runnable{
         Dato eliminar = buffer_validados.getDato(3); //pide el primer elemento del mapa
         if(buffer_inicial.removeDatos(eliminar.getID()) && buffer_validados.removeDatos(eliminar.getID())) {
             try {                                                                            //tiempo de espera
-                TimeUnit.MILLISECONDS.sleep(timer1);
+                Random var = new Random();
+                TimeUnit.MILLISECONDS.sleep((long) (timer1 + var.nextFloat(1,1 + variacion)));
                 datos_procesados++;
             } catch (InterruptedException e) {
                 e.printStackTrace();

@@ -11,9 +11,9 @@ public class Main {
         Contenedor inicial = new Contenedor(0);           //Creamos el buffer inicial instanciando un objeto de contenedor
         Contenedor validados = new Contenedor(1);         //Creamos el buffer de validados instanciando un objeto de contenedor
 
-        for(int i=0;i<4;i++){                               //utilizamos un ciclo for para poder instanciar los 4 hilos creadores
+        for(int i=0;i<4;i++){                                 //utilizamos un ciclo for para poder instanciar los 4 hilos creadores
             Creador c = new Creador(i, inicial);
-            Thread t = new Thread(c,"Hilo Creador "+i);//como Creadores implementa la interfaz runnable, la utilizamos para instanciar los hilos
+            Thread t = new Thread(c,"Hilo Creador "+i);  //como Creadores implementa la interfaz runnable, la utilizamos para instanciar los hilos
             creadores[i] = t;
         }
 
