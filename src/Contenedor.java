@@ -26,13 +26,13 @@ public class Contenedor {
                         }
                     }
                 }else {                                                          //Me esta utilizando un consumidor
-                    Dato dato = datos.get(datos.keySet().toArray()[0]);
+                    Dato dato = datos.get(datos.keySet().toArray()[0]);          //Retorna el primer valor del buffer de validados para que el consumidor comience a procesar los datos
                     reentrantLock.readLock().unlock();
                     return dato;                                                 //obtiene la primer clave del map, haciendolo funcionar como cola
                 }
             }
             reentrantLock.readLock().unlock();
-            return new Dato(-1);                                               //devuelve un -1 si el hashmap esta vacio 
+            return new Dato(-1);                                               //devuelve un Dato con ID -1 si el hashmap esta vacio
     }
 
     public void putDato(Dato dato){

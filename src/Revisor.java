@@ -36,7 +36,7 @@ public class Revisor extends Actor implements Runnable{
     public void run() {
         while (true){
             Dato dato = buffer_inicial.getDato(id);
-            if(dato.getID() != -1){
+            if(dato.getID() != -1){                   //si el hashmap de datos NO esta vacio, pasa a validar datos
                 validarDato(dato);
             }
         }

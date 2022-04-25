@@ -17,7 +17,7 @@ public class Consumidor extends Actor implements Runnable{
 
     public void eliminarDato(){
         Dato eliminar = buffer_validados.getDato(3); //pide el primer elemento del mapa
-        if(buffer_inicial.removeDatos(eliminar.getID()) && buffer_validados.removeDatos(eliminar.getID())) {
+        if(buffer_inicial.removeDatos(eliminar.getID()) && buffer_validados.removeDatos(eliminar.getID())) {          //si los valores se pudieron eliminar de forma exitosa de ambos buffers entonces pasa a dormir el hilo por un tiempo pseudoaleatorio e incrementa los datos procesados
             try {                                                                            //tiempo de espera
                 Random var = new Random();
                 TimeUnit.MILLISECONDS.sleep((long) (timer1*var.nextFloat(1,1 + variacion)));
