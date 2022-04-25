@@ -32,7 +32,7 @@ public class Contenedor {
                 }
             }
             reentrantLock.readLock().unlock();
-            return new Dato(-1);
+            return new Dato(-1);                                               //devuelve un -1 si el hashmap esta vacio 
     }
 
     public void putDato(Dato dato){
