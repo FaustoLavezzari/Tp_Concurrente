@@ -12,7 +12,7 @@ public class Consumidor extends Actor implements Runnable{
         this.buffer_validados=buffer_validados;
         this.buffer_inicial=buffer_inicial;
         variacion = (float) 0.3;
-        int datos_procesados = 0;
+        datos_procesados = 0;
     }
 
     public void eliminarDato(){

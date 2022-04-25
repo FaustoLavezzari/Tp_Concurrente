@@ -1,30 +1,54 @@
 0 segundos de ejecución 
-Se procesaron 125 datos del consumidor 0 
-Se procesaron 127 datos del consumidor 1 
-Se procesaron 252 datos en total 
-El buffer inicial tiene 62 datos almacenados, y el buffer de validados tiene 32 datos almacenados 
+Se procesaron 116 datos del consumidor 0 
+Se procesaron 116 datos del consumidor 1 
+Se procesaron 232 datos en total 
+El buffer inicial tiene 100 datos almacenados, y el buffer de validados tiene 25 datos almacenados 
 
 2 segundos de ejecución 
-Se procesaron 266 datos del consumidor 0 
-Se procesaron 268 datos del consumidor 1 
-Se procesaron 534 datos en total 
-El buffer inicial tiene 98 datos almacenados, y el buffer de validados tiene 66 datos almacenados 
+Se procesaron 233 datos del consumidor 0 
+Se procesaron 237 datos del consumidor 1 
+Se procesaron 470 datos en total 
+El buffer inicial tiene 100 datos almacenados, y el buffer de validados tiene 51 datos almacenados 
 
 4 segundos de ejecución 
-Se procesaron 408 datos del consumidor 0 
-Se procesaron 411 datos del consumidor 1 
-Se procesaron 819 datos en total 
-El buffer inicial tiene 99 datos almacenados, y el buffer de validados tiene 97 datos almacenados 
+Se procesaron 354 datos del consumidor 0 
+Se procesaron 356 datos del consumidor 1 
+Se procesaron 710 datos en total 
+El buffer inicial tiene 100 datos almacenados, y el buffer de validados tiene 76 datos almacenados 
 
 6 segundos de ejecución 
-Se procesaron 543 datos del consumidor 0 
-Se procesaron 549 datos del consumidor 1 
-Se procesaron 1092 datos en total 
-El buffer inicial tiene 96 datos almacenados, y el buffer de validados tiene 91 datos almacenados 
+Se procesaron 473 datos del consumidor 0 
+Se procesaron 474 datos del consumidor 1 
+Se procesaron 947 datos en total 
+El buffer inicial tiene 100 datos almacenados, y el buffer de validados tiene 99 datos almacenados 
 
 8 segundos de ejecución 
-Se procesaron 682 datos del consumidor 0 
-Se procesaron 691 datos del consumidor 1 
-Se procesaron 1373 datos en total 
+Se procesaron 591 datos del consumidor 0 
+Se procesaron 595 datos del consumidor 1 
+Se procesaron 1186 datos en total 
+El buffer inicial tiene 100 datos almacenados, y el buffer de validados tiene 99 datos almacenados 
+
+10 segundos de ejecución 
+Se procesaron 711 datos del consumidor 0 
+Se procesaron 715 datos del consumidor 1 
+Se procesaron 1426 datos en total 
+El buffer inicial tiene 100 datos almacenados, y el buffer de validados tiene 98 datos almacenados 
+
+12 segundos de ejecución 
+Se procesaron 832 datos del consumidor 0 
+Se procesaron 834 datos del consumidor 1 
+Se procesaron 1666 datos en total 
+El buffer inicial tiene 100 datos almacenados, y el buffer de validados tiene 98 datos almacenados 
+
+14 segundos de ejecución 
+Se procesaron 953 datos del consumidor 0 
+Se procesaron 955 datos del consumidor 1 
+Se procesaron 1908 datos en total 
+El buffer inicial tiene 100 datos almacenados, y el buffer de validados tiene 99 datos almacenados 
+
+16 segundos de ejecución 
+Se procesaron 1073 datos del consumidor 0 
+Se procesaron 1075 datos del consumidor 1 
+Se procesaron 2148 datos en total 
 El buffer inicial tiene 98 datos almacenados, y el buffer de validados tiene 97 datos almacenados 
 

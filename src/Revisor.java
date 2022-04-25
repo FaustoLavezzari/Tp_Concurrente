@@ -18,10 +18,10 @@ public class Revisor extends Actor implements Runnable{
         try{                                                                                    //tiempo de espera
             Random var = new Random();
             TimeUnit.MILLISECONDS.sleep((long) (timer1*var.nextFloat(1,1 + variacion)));
-            dato.addReviewer(id);                                                   //agrego este revisor al dato
+            dato.addReviewer(id);                                                                   //agrego este revisor al dato
             if(dato.getReviewers().size() == 2){                                                   //el ultimo revisor lo agrega a validados
                 buffer_validados.putDato(dato);
-            } else if (dato.getReviewers().size() > 2) {
+            } else if (dato.getReviewers().size() > 2) {                                           //el dato fue revizado mas de 2 veces
                 System.out.println("ERROR, UN DATO FUE REVISADO MAS VECES QUE LA CANTIDAD DE REVISORES");
             }
         }catch (InterruptedException e){

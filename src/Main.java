@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        int tiempo_creador = 20;
-        int tiempo_revisor = 5;         //tiempos base de los actores en ms
-        int tiempo_consumidor = 12;
+        int tiempo_creador = 4;
+        int tiempo_revisor = 6;         //tiempos base de los actores en ms
+        int tiempo_consumidor = 14;
 
         Thread[] creadores = new Thread[4];                     //Creamos un arreglo de tamaño 4 para los hilos creadores
         Thread[] revisores = new Thread[2];                     //Creamos un arreglo de tamaño 2 para los hilos revisores
