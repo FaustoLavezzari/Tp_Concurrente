@@ -10,14 +10,14 @@ public class Consumidor extends Actor implements Runnable{
     private int datos_procesados;
 
     public Consumidor(int id, Contenedor buffer_validados, Contenedor buffer_inicial){
-        super(4, id);
+        super(10, id);
         this.buffer_validados=buffer_validados;
         this.buffer_inicial=buffer_inicial;
         int datos_procesados = 0;
 
     }
     public void eliminarDato(){
-        Dato eliminar = buffer_validados.getDato(-1); //pide el primer elemento del mapa
+        Dato eliminar = buffer_validados.getDato(-1, 0); //pide el primer elemento del mapa
         if(eliminar.getID() != -1) {
             try {                                                                            //tiempo de espera
                 TimeUnit.MILLISECONDS.sleep(timer1);

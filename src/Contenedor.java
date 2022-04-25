@@ -19,26 +19,25 @@ public class Contenedor {
 
     }
     // parece que aca no hay problema de concurrencia
-    public synchronized Dato getDato(int ID){
-            if (ID != -1) {
-                return datos.get(ID);
-            } else {
-                if (!datos.isEmpty()) {
-                    return datos.get(datos.keySet().toArray()[0]); //obtiene la primer clave del map, haciendolo funcionar como cola
-                } else {
-                    return new Dato(-1);
-                }
-            }
+    public synchronized Dato getDato(int actor, int id_actor){                           //Funcion que nos devuelve el dato para revisar, o el dato para consumir
+           if (!datos.isEmpty()){
+               if (actor == -2) {                                                           //Verifico que me esta utilizando el revisor
+                   for (Dato dato : datos.values()){                                     //recorro los valores (values) del map datos
+                       if (!dato.getReviewers().contains(id_actor)){                        //si el revisor todavia no reviso el dato en donde me encuentro, retorno el dato y termina la funcion
+                           return dato;                                                  //en el caso que no entre en el if, sigue recorriendo el map
+                       }
+                   }
+               }
+               else {                                                                     //Me esta utilizando un consumidor
+                   return datos.get(datos.keySet().toArray()[0]);                       //obtiene la primer clave del map, haciendolo funcionar como cola
+               }
+           }
+           return new Dato(-1);
     }
 
     public synchronized void putDato(Dato dato){
             if (datos.size() < capacidad) {
                 datos.put(dato.getID(), dato);
-                if (dato.getCantReviews() == 0) {
-                    for (Revisor revisor : revisores) {
-                        revisor.putQueue(dato.getID());
-                    }
-                }
             }
     }
 
