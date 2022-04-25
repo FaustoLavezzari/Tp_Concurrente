@@ -3,13 +3,7 @@ public abstract class Actor {
     protected int id;
 
     public Actor(int timer1, int id){
-
         this.timer1 = timer1;
         this.id = id;
     }
-
-
-
-  //  protected abstract void procesar();
-  protected abstract void putQueue(int datoID) throws InterruptedException;
 }

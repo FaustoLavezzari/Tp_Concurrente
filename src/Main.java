@@ -19,8 +19,7 @@ public class Main {
 
         for(int i=0; i<2; i++){
             Revisor revisor = new Revisor(i, inicial, validados);
-            inicial.setRevisores(revisor);
-            Thread t = new Thread(revisor,"Hilo Revisor "+ i);
+            Thread t = new Thread(revisor,"Hilo Revisor "+ i);  //como Revisores implementa la interfaz runnable, la utilizamos para instanciar los hilos
             revisores[i] = t;
 
             Consumidor consumidor = new Consumidor(i, validados, inicial);
@@ -59,12 +58,5 @@ public class Main {
         }finally {
             System.out.println("\n\nTODOS los hilos en este punto. Fin del programa");
         }
-
-        /*
-        - Cantidad de datos procesados.
-        - Ocupación del “Buffer Inicial”.
-        - Ocupación del “Buffer de Validados”.
-         */
-
     }
 }

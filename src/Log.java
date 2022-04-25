@@ -19,7 +19,7 @@ public class Log implements Runnable {
             datos_totales += consumidores.get(i).getDatos_procesados();
         }
         System.out.printf("Se procesaron %d datos en total \n",datos_totales);
-       System.out.printf("El buffer inicial tiene %d datos almacenados, y el buffer de validados tiene %d datos almacenados \n\n" , buffer_inicial.getCantDeDatos() , getBuffer_validados.getCantDeDatos());
+        System.out.printf("El buffer inicial tiene %d datos almacenados, y el buffer de validados tiene %d datos almacenados \n\n" , buffer_inicial.getCantDeDatos() , getBuffer_validados.getCantDeDatos());
     }
 
     @Override
@@ -29,7 +29,7 @@ public class Log implements Runnable {
             try {
                 TimeUnit.MILLISECONDS.sleep(2000);
                 tiempo_ejecucion += 2;
-               System.out.printf("%s segundos de ejecución \n", tiempo_ejecucion);
+                System.out.printf("%s segundos de ejecución \n", tiempo_ejecucion);
                 imprimirLog();
             } catch (InterruptedException e) {
                 e.printStackTrace();

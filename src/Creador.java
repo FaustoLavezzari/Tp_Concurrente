@@ -1,34 +1,24 @@
-import java.sql.Time;
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 
 public class Creador extends Actor implements Runnable{
 
-    private Contenedor inicial;
-    private int datos_creados;
-    private Lock queueLock;
+    private Contenedor inicial;   //cada Creador tendra su propio buffer inicial
+    private int datos_creados;    //variable de revision
 
     public Creador(int ID, Contenedor b){
-        super(25,ID);
-        this.inicial = b;
-        this.datos_creados= 0;
-        queueLock = new ReentrantLock();
+        super(20,ID);             //todos los creadores se setean con un tiempo de procesamiento de 20 y un ID determinado
+        this.inicial = b;         //el contenedor  inicial se setea con el contenedor que le es pasado como parametro (en este caso el buffer_inicial)
+        this.datos_creados= 0;    //el numero de datos procesador cuando se crea el hilo es 0
     }
 
     @Override
-    public void run(){
+    public void run(){            //este es el metodo que van a ejecutar todos los hilos una vez que se inicialicen
         int i = this.id;
-        // generamos datos indefinidamente
         while(true){
             Dato d = new Dato(i);
             this.agregarDato(d);
             i+=4;
         }
-      //  System.out.printf("hilo %s creo %d datos \n",Thread.currentThread().getName(), datos_creados);
-      //  System.out.printf("%s hay %d datos en el contenedor\n",Thread.currentThread().getName(), inicial.getSize());
     }
 
     private void agregarDato(Dato dato){
@@ -39,9 +29,5 @@ public class Creador extends Actor implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    protected void putQueue(int datoID){
     }
 }
