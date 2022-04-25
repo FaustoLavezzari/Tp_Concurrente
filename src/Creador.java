@@ -13,7 +13,7 @@ public class Creador extends Actor implements Runnable{
 
     @Override
     public void run(){            //este es el metodo que van a ejecutar todos los hilos una vez que se inicialicen
-        int i = this.id;
+        int i = this.id;          
         while(true){
             Dato d = new Dato(i);
             this.agregarDato(d);
