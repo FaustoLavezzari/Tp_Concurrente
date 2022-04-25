@@ -11,19 +11,20 @@ public class Contenedor {
     LinkedHashMap<Integer, Dato> datos;
     private ArrayList<Revisor> revisores;
     private Queue<Integer> queue_id_consumir;
-
-
-    //private ReadWriteLock reentrantLock = new ReentrantReadWriteLock(true);
-   // private Lock readLock = reentrantLock.readLock();
-    //private Lock writeLock = reentrantLock.writeLock();
+    private ReadWriteLock reentrantLock;
+    private Lock readLock;
+    private Lock writeLock;
 
 
     public Contenedor(int ID){
         this.capacidad = 100;
         this.ID = ID;
-        revisores = new ArrayList<>();
+        this.revisores = new ArrayList<>();
         this.datos = new LinkedHashMap<>();
-        queue_id_consumir = new LinkedList<>();
+        this.queue_id_consumir = new LinkedList<>();
+        this.reentrantLock = new ReentrantReadWriteLock(true);
+        this.readLock = reentrantLock.readLock();
+        this.writeLock = reentrantLock.writeLock();
 
     }
     public synchronized Dato getDato(int id_actor){                           //Funcion que nos devuelve el dato para revisar, o el dato para consumir
@@ -41,10 +42,13 @@ public class Contenedor {
                }
     }
 
-    public synchronized void putDato(Dato dato){
-            if (datos.size() < capacidad) {
-                datos.put(dato.getID(), dato);
-            }
+    //public synchronized void putDato(Dato dato){
+    public void putDato(Dato dato){
+        if (datos.size() < capacidad) {
+            reentrantLock.writeLock().lock();
+            datos.put(dato.getID(), dato);
+            reentrantLock.writeLock().unlock();
+        }
     }
 
     // no hay problema de concurrencia
@@ -56,16 +60,17 @@ public class Contenedor {
         return this.datos.size();
     }
 
-    public synchronized boolean removeDatos(int ID){
+    //public synchronized boolean removeDatos(int ID){
+    public boolean removeDatos(int ID){
         if (datos.containsKey(ID)){
+            reentrantLock.writeLock().lock();
             datos.remove(ID);
+            reentrantLock.writeLock().unlock();
             return true;
         }
         else{
             return false;
         }
-
-
     }
 
     public boolean isEmpty(){

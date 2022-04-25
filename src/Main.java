@@ -18,17 +18,17 @@ public class Main {
         }
 
         for(int i=0; i<2; i++){
-            Revisor revisor = new Revisor(i,inicial,validados);
+            Revisor revisor = new Revisor(i, inicial, validados);
             inicial.setRevisores(revisor);
-            Thread t = new Thread(revisor,"Hilo Revisor "+i);
+            Thread t = new Thread(revisor,"Hilo Revisor "+ i);
             revisores[i] = t;
 
             Consumidor consumidor = new Consumidor(i, validados, inicial);
-            Thread cons = new Thread(consumidor,"Hilo Consumidor "+i);
+            Thread cons = new Thread(consumidor,"Hilo Consumidor "+ i);
             consumidores[i] = cons;
             consures.add(consumidor);
         }
-        Thread tlog = new Thread(new Log(consures, inicial, validados), "thread-log");
+        Thread tlog = new Thread(new Log(consures, inicial, validados), "Hilo LOG ");
 
         // lanzamos todos los hilos
        tlog.start();

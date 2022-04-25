@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
-
+import java.util.concurrent.locks.ReadWriteLock;
 
 
 public class Consumidor extends Actor implements Runnable{
@@ -10,7 +10,7 @@ public class Consumidor extends Actor implements Runnable{
     private int datos_procesados;
 
     public Consumidor(int id, Contenedor buffer_validados, Contenedor buffer_inicial){
-        super(4, id);
+        super(5, id);
         this.buffer_validados=buffer_validados;
         this.buffer_inicial=buffer_inicial;
         int datos_procesados = 0;

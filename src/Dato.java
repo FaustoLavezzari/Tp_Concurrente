@@ -19,7 +19,7 @@ public class Dato {
             reviewers.add(revisor);
     }
 
-    public List<Integer> getReviewers() {
+    public synchronized List<Integer> getReviewers() {
         return reviewers;
     }
 

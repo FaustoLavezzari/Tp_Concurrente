@@ -11,5 +11,5 @@ public abstract class Actor {
 
 
   //  protected abstract void procesar();
-  protected abstract void putQueue(int datoID);
+  protected abstract void putQueue(int datoID) throws InterruptedException;
 }
