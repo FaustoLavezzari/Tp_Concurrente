@@ -30,6 +30,9 @@ public class Consumidor extends Actor implements Runnable{
                 datos_procesados++;
             }
         }
+        //else{
+        //    System.out.println("esta hacieendo toodo mal");
+        //}
     }
     public int getDatos_procesados(){                                                   //nos sirve para el log
         return datos_procesados;

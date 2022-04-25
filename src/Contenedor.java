@@ -1,7 +1,9 @@
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Contenedor {
     private int ID;
@@ -9,6 +11,12 @@ public class Contenedor {
     LinkedHashMap<Integer, Dato> datos;
     private ArrayList<Revisor> revisores;
     private Queue<Integer> queue_id_consumir;
+
+
+    //private ReadWriteLock reentrantLock = new ReentrantReadWriteLock(true);
+   // private Lock readLock = reentrantLock.readLock();
+    //private Lock writeLock = reentrantLock.writeLock();
+
 
     public Contenedor(int ID){
         this.capacidad = 100;
@@ -58,5 +66,9 @@ public class Contenedor {
         }
 
 
+    }
+
+    public boolean isEmpty(){
+        return datos.isEmpty();
     }
 }
