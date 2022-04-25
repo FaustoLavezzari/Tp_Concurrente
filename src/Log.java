@@ -1,5 +1,8 @@
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+import java.io.PrintWriter;
+import java.io.IOException;
 
 public class Log implements Runnable {
     private ArrayList<Consumidor> consumidores;
@@ -13,6 +16,7 @@ public class Log implements Runnable {
     }
 
     private void imprimirLog (){
+
         int datos_totales=0;
         for(int i = 0 ; i<consumidores.size() ; i++){
             System.out.printf("Se procesaron %d datos del consumidor %d \n",consumidores.get(i).getDatos_procesados(),i);
