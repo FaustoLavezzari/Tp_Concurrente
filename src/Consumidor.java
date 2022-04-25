@@ -28,6 +28,7 @@ public class Consumidor extends Actor implements Runnable{
             Dato eliminar = buffer_validados.getDato(3); //pide el primer elemento del mapa
             if(buffer_inicial.removeDatos(eliminar.getID()) && buffer_validados.removeDatos(eliminar.getID())) {
                 datos_procesados++;
+                //System.out.println("esta entrando a remover");
             }
         }
         //else{
