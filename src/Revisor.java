@@ -14,7 +14,7 @@ public class Revisor extends Actor implements Runnable{
     private Lock lock;
 
     public Revisor(int ID, Contenedor buffer_inicial, Contenedor buffer_validados) {
-        super(4, ID);
+        super(5, ID);
         this.buffer_inicial = buffer_inicial;
         this.buffer_validados= buffer_validados;
         this.datos_procesados = 0;

@@ -58,11 +58,11 @@ public class Contenedor {
 
     //public synchronized void putDato(Dato dato){
     public void putDato(Dato dato){
+        reentrantLock.writeLock().lock();
         if (datos.size() < capacidad) {
-            reentrantLock.writeLock().lock();
             datos.put(dato.getID(), dato);
-            reentrantLock.writeLock().unlock();
         }
+        reentrantLock.writeLock().unlock();
     }
 
     // no hay problema de concurrencia
@@ -76,13 +76,14 @@ public class Contenedor {
 
     //public synchronized boolean removeDatos(int ID){
     public boolean removeDatos(int ID){
+        reentrantLock.writeLock().lock();
         if (datos.containsKey(ID)){
-            reentrantLock.writeLock().lock();
             datos.remove(ID);
             reentrantLock.writeLock().unlock();
             return true;
         }
         else{
+            reentrantLock.writeLock().unlock();
             return false;
         }
     }
