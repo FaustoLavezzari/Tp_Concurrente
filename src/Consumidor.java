@@ -26,7 +26,6 @@ public class Consumidor extends Actor implements Runnable{
                 e.printStackTrace();
             }
         }
-
     }
 
     @Override
