@@ -7,9 +7,9 @@ public class Creador extends Actor implements Runnable{
     private int datos_creados;    //variable de revision
     private float variacion;
 
-    public Creador(int ID, Contenedor b){
-        super(20,ID);             //llamamos al metodo de la super
-        this.inicial = b;         //el contenedor  inicial se setea con el contenedor que le es pasado como parametro (en este caso el buffer_inicial)
+    public Creador(int ID,int timer, Contenedor b){
+        super(timer,ID);             //llamamos al metodo de la super
+        this.inicial = b;           //el contenedor  inicial se setea con el contenedor que le es pasado como parametro (en este caso el buffer_inicial)
         this.datos_creados= 0;      //el numero de datos procesador cuando se crea el hilo es 0
         variacion = (float) 0.3;
     }

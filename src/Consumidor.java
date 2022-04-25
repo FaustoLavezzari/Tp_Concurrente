@@ -7,8 +7,8 @@ public class Consumidor extends Actor implements Runnable{
     private int datos_procesados;
     private  float variacion;
 
-    public Consumidor(int id, Contenedor buffer_validados, Contenedor buffer_inicial){
-        super(6, id);
+    public Consumidor(int id,int timer ,Contenedor buffer_validados, Contenedor buffer_inicial){
+        super(timer, id);
         this.buffer_validados=buffer_validados;
         this.buffer_inicial=buffer_inicial;
         variacion = (float) 0.3;

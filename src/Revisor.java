@@ -8,8 +8,8 @@ public class Revisor extends Actor implements Runnable{
     private  float variacion;
     private int datos_procesados;                 //variable de revision
 
-    public Revisor(int ID, Contenedor buffer_inicial, Contenedor buffer_validados) {
-        super(5, ID);                         //llamamos al metodo de la super
+    public Revisor(int ID,int timer, Contenedor buffer_inicial, Contenedor buffer_validados) {
+        super(timer, ID);                         //llamamos al metodo de la super
         this.buffer_inicial = buffer_inicial;      //el contenedor  inicial se setea con el contenedor que le es pasado como parametro (en este caso el buffer_inicial)
         this.buffer_validados= buffer_validados;   //el contenedor  validados se setea con el contenedor que le es pasado como parametro (en este caso el buffer_validados)
         this.datos_procesados = 0;
@@ -22,9 +22,9 @@ public class Revisor extends Actor implements Runnable{
             TimeUnit.MILLISECONDS.sleep((long) (timer1*var.nextFloat(1,1 + variacion)));
             dato.addReviewer(id);                                                   //agrego este revisor al dato
             datos_procesados++;
-            if(dato.getCantReviews()== 2){                                                   //el ultimo revisor lo agrega a validados
+            if(dato.getReviewers().size() == 2){                                                   //el ultimo revisor lo agrega a validados
                 buffer_validados.putDato(dato);
-            } else if (dato.getCantReviews()> 2) {
+            } else if (dato.getReviewers().size() > 2) {
                 System.out.println("ERROR, UN DATO FUE REVISADO MAS VECES QUE LA CANTIDAD DE REVISORES");
             }
         }catch (InterruptedException e){
