@@ -6,13 +6,11 @@ public class Revisor extends Actor implements Runnable{
     private Contenedor buffer_inicial;            //cada Creador tendra su propio buffer inicial
     private Contenedor buffer_validados;          //cada Creador tendra su propio buffer validados
     private  float variacion;
-    private int datos_procesados;                 //variable de revision
 
     public Revisor(int ID,int timer, Contenedor buffer_inicial, Contenedor buffer_validados) {
         super(timer, ID);                         //llamamos al metodo de la super
         this.buffer_inicial = buffer_inicial;      //el contenedor  inicial se setea con el contenedor que le es pasado como parametro (en este caso el buffer_inicial)
         this.buffer_validados= buffer_validados;   //el contenedor  validados se setea con el contenedor que le es pasado como parametro (en este caso el buffer_validados)
-        this.datos_procesados = 0;
         variacion = (float) 0.3;
     }
 
@@ -21,7 +19,6 @@ public class Revisor extends Actor implements Runnable{
             Random var = new Random();
             TimeUnit.MILLISECONDS.sleep((long) (timer1*var.nextFloat(1,1 + variacion)));
             dato.addReviewer(id);                                                   //agrego este revisor al dato
-            datos_procesados++;
             if(dato.getReviewers().size() == 2){                                                   //el ultimo revisor lo agrega a validados
                 buffer_validados.putDato(dato);
             } else if (dato.getReviewers().size() > 2) {

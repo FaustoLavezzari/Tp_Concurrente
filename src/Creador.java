@@ -3,15 +3,11 @@ import java.util.concurrent.TimeUnit;
 
 public class Creador extends Actor implements Runnable{
 
-    private Contenedor inicial;   //cada Creador tendra su propio buffer inicial
-    private int datos_creados;    //variable de revision
-    private float variacion;
+    private Contenedor buffer_inicial;   //cada Creador tendra su propio buffer inicial
 
     public Creador(int ID,int timer, Contenedor b){
         super(timer,ID);             //llamamos al metodo de la super
-        this.inicial = b;           //el contenedor  inicial se setea con el contenedor que le es pasado como parametro (en este caso el buffer_inicial)
-        this.datos_creados= 0;      //el numero de datos procesador cuando se crea el hilo es 0
-        variacion = (float) 0.3;
+        this.buffer_inicial = b;           //el contenedor  inicial se setea con el contenedor que le es pasado como parametro (en este caso el buffer_inicial)
     }
 
     @Override
@@ -28,8 +24,7 @@ public class Creador extends Actor implements Runnable{
         try {
             Random var = new Random();                                                                       //Instancio un objeto Random
             TimeUnit.MILLISECONDS.sleep((long) (timer1*var.nextFloat(1,1 + variacion)));        //Aqui implementamos un sleep de tiempo pseudoaleatorio
-            this.inicial.putDato(dato);
-            this.datos_creados++;
+            this.buffer_inicial.putDato(dato);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

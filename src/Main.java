@@ -10,7 +10,7 @@ public class Main {
         Thread[] creadores = new Thread[4];                     //Creamos un arreglo de tamaño 4 para los hilos creadores
         Thread[] revisores = new Thread[2];                     //Creamos un arreglo de tamaño 2 para los hilos revisores
         Thread[] consumidores = new Thread[2];                  //Creamos un arreglo de tamaño 4 para los hilos consumidores
-        ArrayList<Consumidor> consures = new ArrayList<Consumidor>();    //Creamos un ArrayList para el log
+        ArrayList<Consumidor> consures = new ArrayList<>();    //Creamos un ArrayList para el log
 
         Contenedor inicial = new Contenedor(0);             //Creamos el buffer inicial instanciando un objeto de contenedor
         Contenedor validados = new Contenedor(1);            //Creamos el buffer de validados instanciando un objeto de contenedor
