@@ -45,7 +45,7 @@ public class Revisor extends Actor implements Runnable{
     public void run() {
         while (true){
             Dato dato = buffer_inicial.getDato(id);
-            if(!buffer_inicial.isEmpty()){
+            if(dato.getID() != -1){
                 validarDato(dato);
             }
         }
