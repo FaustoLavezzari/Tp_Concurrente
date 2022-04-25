@@ -3,14 +3,15 @@ import java.util.concurrent.TimeUnit;
 
 public class Revisor extends Actor implements Runnable{
 
-    private Contenedor buffer_inicial;
-    private Contenedor buffer_validados;
-    private int datos_procesados;
+    private Contenedor buffer_inicial;            //cada Creador tendra su propio buffer inicial
+    private Contenedor buffer_validados;          //cada Creador tendra su propio buffer validados
+    private  float variacion;
+    private int datos_procesados;                 //variable de revision
 
     public Revisor(int ID, Contenedor buffer_inicial, Contenedor buffer_validados) {
-        super(5, ID);
-        this.buffer_inicial = buffer_inicial;
-        this.buffer_validados= buffer_validados;
+        super(5, ID);                         //llamamos al metodo de la super
+        this.buffer_inicial = buffer_inicial;      //el contenedor  inicial se setea con el contenedor que le es pasado como parametro (en este caso el buffer_inicial)
+        this.buffer_validados= buffer_validados;   //el contenedor  validados se setea con el contenedor que le es pasado como parametro (en este caso el buffer_validados)
         this.datos_procesados = 0;
         variacion = (float) 0.3;
     }

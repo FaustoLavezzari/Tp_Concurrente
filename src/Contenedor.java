@@ -3,17 +3,17 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Contenedor {
-    private int ID;
-    private int capacidad;
-    LinkedHashMap<Integer, Dato> datos;
+    private int ID;                 //ID de cada contenedor
+    private int capacidad;          //cantidad de cada contenedor
+    LinkedHashMap<Integer, Dato> datos;    //El HashMap va a cumplir la funcion de contenener los datos y asociarlos a un ID
     private ReadWriteLock reentrantLock;
 
 
     public Contenedor(int ID){
-        this.capacidad = 100;
+        this.capacidad = 100;    //cada contenedor tendra una capacidad de 100 datos
         this.ID = ID;
         this.datos = new LinkedHashMap<>();
-        this.reentrantLock = new ReentrantReadWriteLock(true);
+        this.reentrantLock = new ReentrantReadWriteLock(true);    //el lock sera justo para los hilos que estuvieron esperando mas tiempo
     }
     public Dato getDato(int id_actor){
             reentrantLock.readLock().lock();
