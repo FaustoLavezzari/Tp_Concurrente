@@ -37,5 +37,5 @@ public class Log implements Runnable {
         }
     }
 
-    
+
 }
