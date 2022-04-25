@@ -12,7 +12,7 @@ public class Creador extends Actor implements Runnable{
     private Lock queueLock;
 
     public Creador(int ID, Contenedor b){
-        super(2,ID);
+        super(20,ID);
         this.inicial = b;
         this.datos_creados= 0;
         queueLock = new ReentrantLock();

@@ -72,8 +72,4 @@ public class Contenedor {
             return false;
         }
     }
-
-    public boolean isEmpty(){
-        return datos.isEmpty();
-    }
 }
